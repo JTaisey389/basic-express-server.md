@@ -2,6 +2,9 @@
 
 ## Author: Jason Taisey
 
+## Links and Resources
+- [CI/CD](https://github.com/JTaisey389/basic-express-server.md/runs/2396848925?check_suite_focus=true)
+
 ## Setup
 
 - PORT=3000
