@@ -28,7 +28,7 @@ function createOnePeiceOfClothes(req, res) {
   let createdClothes = clothes.create(content);
   res.status(201).json(createdClothes);
 }
-function createOnePeiceOfClothes(req, res) {
+function updateOnePeiceOfClothes(req, res) {
   let content = req.body;
   const id = parseInt(req.params.id);
   let updatedClothes = clothes.update(id, content);
