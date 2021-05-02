@@ -17,7 +17,7 @@ app.use(customClothesRoute);
 app.use(customFoodRoute);
 
 // catch all route handles routes that are not found 
-app.use('*', cantFind );
+app.use('*', notFound );
 // handles generic server errors
 app.use(errors);
 
