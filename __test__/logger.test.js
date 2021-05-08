@@ -2,7 +2,7 @@
 const  logger  = require('../src/middleware/logger');
 
 // Testing the middleware need to be exported from the server or set up as a seperate module
-describe('logger middlewar', () => {
+describe('logger middleware', () => {
   let consoleLookout;
   let req = {};
   let res = {};

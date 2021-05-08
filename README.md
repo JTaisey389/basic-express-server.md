@@ -20,6 +20,8 @@
 
 ## Test
 
+- npm run test
+
 - 404 is for the bad routes
 - 404 is for the bad method
 - 500 for a no name in the query string
