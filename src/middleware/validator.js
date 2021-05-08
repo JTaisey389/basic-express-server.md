@@ -1,5 +1,9 @@
 'use strict';
 
 module.exports = (req, res, next) => {
-  next();
+  if(req.query.name){
+    next();
+  } else {
+    next('Please enter name');
+  }
 };
