@@ -10,13 +10,7 @@ describe('***MY WEB SERVER***', () => {
       expect(data.status).toBe(404);
     });
   });
-  
-  it('should respond with a 500 on server not found', async () => {
-    return illusionRequest.get('/person').then(data => {
-      expect(data.status).toBe(500);
-    });
-  });
-  
+
   it('should respond properly to a GET: /hello', async () => {
     const response = await illusionRequest.get('/hello');
     expect(response.status).toBe(200);

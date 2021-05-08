@@ -5,8 +5,8 @@ const app = express();
 
 const cantFind = require('./error-handlers/404.js');
 const errors = require('./error-handlers/500.js');
-const logger = require('./middleware/logger.js');
-const validateName = require('./middleware/validator.js');
+const Logger = require('../src/middleware/logger');
+const validateName = require('../src/middleware/validator');
 
 //global middleware for handling the parsing of a req.body
 app.use(express.json());
@@ -17,7 +17,7 @@ app.get('/hello/:person', (req, res) => {
   res.send({ name: req.params.person});
 })
 
-app.get('/person', validateName, logger, (req, res) => {
+app.get('/person', validateName, Logger, (req, res) => {
   res.send({ name: req.query.name });
 })
 
@@ -38,7 +38,7 @@ app.get('/hello/:person/:another', (req, res) => {
   res.send(req.params);
 })
 
-app.get('/cool', logger, square(5), (req, res) => {
+app.get('/cool', Logger, square(5), (req, res) => {
   console.log(req.squared);
   res.json({ num: req.squared});
 })

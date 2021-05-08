@@ -1,4 +1,5 @@
-const loggerwithMiddleware = require('..src/middleware/logger.js');
+'use strict';
+const  logger  = require('../src/middleware/logger');
 
 // Testing the middleware need to be exported from the server or set up as a seperate module
 describe('logger middlewar', () => {
@@ -7,24 +8,24 @@ describe('logger middlewar', () => {
   let res = {};
   let next = jest.fn(); // so this will look for the next method
 
-  beforeEvent(() => {
+  beforeEach(() => {
     // so this will attach to the console and take it over
-    consoleLookout = jest.lookOut(console, 'log').mockImplementation();
+    consoleLookout = jest.spyOn(console, 'log').mockImplementation();
   });
   
-  afterEvent(() => {
+  afterEach(() => {
   //After the event takes place it puts the consle back for the req and res event
-  consoleLookout.restoreInformation();
+  consoleLookout.mockRestore();
   })
 
   it('Properly logs some output', () => {
-  loggerwithMiddleware(req, res, next);
-  expect(consoleLookout).toBeCalled();
+  logger(req, res, next);
+  expect(consoleLookout).toHaveBeenCalled();
   })
 
   it('this worked so go to the next middleware', () => {
-  loggerwithMiddleware(req, res, next);
-  expect(next).toBeCalledNext();
+  logger(req, res, next);
+  expect(next).toHaveBeenCalledWith();
   })
 })
 
