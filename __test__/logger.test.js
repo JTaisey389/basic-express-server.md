@@ -28,4 +28,3 @@ describe('logger middlewar', () => {
   expect(next).toHaveBeenCalledWith();
   })
 })
-
